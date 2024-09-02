@@ -80,7 +80,7 @@ export default async function handler(
                     },
                     body: JSON.stringify({
                         pre_checkout_query_id: pre_checkout_query.id,
-                        ok: true
+                        ok: "True",
                     }),
                 }
             );

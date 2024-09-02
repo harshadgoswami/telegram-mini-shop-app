@@ -5,7 +5,6 @@ import { Fragment, useEffect, useState } from "react";
 import Card from "@/components/Card/Card";
 import Cart from "@/components/Cart/Cart";
 import axios from "axios";
-import { sendInvoice } from "@/components/TelegramService/telegramservice";
 import { IFood, ICartItem } from "@/types/food.type";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,6 +14,7 @@ let foods: IFood[] = [];
 export default function Home() {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
   const [foods, setFoods] = useState<IFood[]>([]);
+  const [telegramId, setTelegramId] = useState(0);
 
   useEffect(() => {
     //capture foods from the database
@@ -23,9 +23,13 @@ export default function Home() {
       setFoods(res.data.data);
     });
 
-    // axios.get("https://api.telegram.org/bot{}/getMe").then((res) => {
-    //   setGetmeres(Number(res.data.result._id));
-    // });
+    axios
+      .get(
+        `https://api.telegram.org/bot{process.env.NEXT_PUBLIC_BOT_TOKEN}/getMe`
+      )
+      .then((res) => {
+        setTelegramId(Number(res.data.result._id));
+      });
   }, []);
 
   const onAdd = (food: IFood) => {
@@ -57,7 +61,7 @@ export default function Home() {
 
   const onCheckout = () => {
     //do checkout here
-    //sendInvoice("7130021259".toString());
+    axios.post(`/api/sendinvoice`, { telegramId }).then((res) => {});
   };
 
   return (

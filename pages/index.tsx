@@ -19,7 +19,6 @@ export default function Home() {
   useEffect(() => {
     //capture foods from the database
     axios.get(`/api/foods`).then((res) => {
-      debugger;
       setFoods(res.data.data);
     });
 
@@ -31,7 +30,7 @@ export default function Home() {
         alert(res.data);
         setTelegramId(Number(res.data.result._id));
       });
-  }, []);
+  }, [telegramId]);
 
   const onAdd = (food: IFood) => {
     const exist = cartItems.find((x) => x._id === food._id);

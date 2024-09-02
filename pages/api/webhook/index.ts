@@ -8,6 +8,8 @@ export default async function handler(
     if (req.method === "POST") {
         const { message } = req.body;
 
+        console.log(req.body);
+
         if (message) {
             const userId = message.from.id; // This is the current user's Telegram ID
             const firstName = message.from.first_name;

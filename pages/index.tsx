@@ -14,7 +14,6 @@ let foods: IFood[] = [];
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
-  const [getmeres, setGetmeres] = useState(0);
   const [foods, setFoods] = useState<IFood[]>([]);
 
   useEffect(() => {
@@ -24,9 +23,9 @@ export default function Home() {
       setFoods(res.data.data);
     });
 
-    axios.get("https://api.telegram.org/bot{}/getMe").then((res) => {
-      setGetmeres(Number(res.data.result._id));
-    });
+    // axios.get("https://api.telegram.org/bot{}/getMe").then((res) => {
+    //   setGetmeres(Number(res.data.result._id));
+    // });
   }, []);
 
   const onAdd = (food: IFood) => {
@@ -58,13 +57,12 @@ export default function Home() {
 
   const onCheckout = () => {
     //do checkout here
-    sendInvoice("7130021259".toString());
+    //sendInvoice("7130021259".toString());
   };
 
   return (
     <>
       <h1 className="heading">Order Food</h1>
-      <div>{getmeres}</div>
       <Cart cartItems={cartItems} onCheckout={onCheckout} />
       <div className="cards__container">
         {foods.map((food: IFood) => {

@@ -28,6 +28,7 @@ export default function Home() {
         `https://api.telegram.org/bot{process.env.NEXT_PUBLIC_BOT_TOKEN}/getMe`
       )
       .then((res) => {
+        alert(res.data);
         setTelegramId(Number(res.data.result._id));
       });
   }, []);
@@ -61,7 +62,6 @@ export default function Home() {
 
   const onCheckout = () => {
     //do checkout here
-    alert(telegramId);
     axios
       .post(`/api/telegram/sendinvoice`, { telegramId: "954752754" })
       .then((res) => {});

@@ -29,7 +29,7 @@ export const sendInvoice = (chatId: string) => {
     };
 
     return axios
-        .post(`${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendInvoice`, payload)
+        .post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendInvoice`, payload)
         .then((response) => {
             console.log("Invoice sent successfully", response.data);
             alert("Invoice sent successfully");

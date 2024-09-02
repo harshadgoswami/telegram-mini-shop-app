@@ -2,10 +2,10 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Fragment, useEffect, useState } from "react";
 
-import Card from "@/Components/Card/Card";
-import Cart from "@/Components/Cart/Cart";
+import Card from "@/components/Card/Card";
+import Cart from "@/components/Cart/Cart";
 import axios from "axios";
-import { sendInvoice } from "@/Components/TelegramService/telegramservice";
+import { sendInvoice } from "@/components/TelegramService/telegramservice";
 import { IFood, ICartItem } from "@/types/food.type";
 
 const inter = Inter({ subsets: ["latin"] });

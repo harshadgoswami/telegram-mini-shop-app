@@ -74,16 +74,12 @@ export default async function handler(
             // reference : https://core.telegram.org/bots/api#answerprecheckoutquery
             console.log("answerPreCheckout now ", pre_checkout_query.id);
 
-            axios.post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`, {
+            const { data, status } = await axios.post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`, {
                 pre_checkout_query_id: pre_checkout_query.id,
                 ok: true
-            }).then((resp) => {
-
-                console.log(resp.data.data)
-
-            }).catch((resp) => {
-                console.log({ error: true, resp })
             });
+
+            console.log({ status, data });
 
             // await fetch(
             //     `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`,

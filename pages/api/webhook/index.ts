@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -42,8 +43,9 @@ export default async function handler(
             );
 
             // You can respond back to the user via the bot
-            await fetch(
-                `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`,
+
+            await fetch(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`
+                ,
                 {
                     method: "POST",
                     headers: {
@@ -71,20 +73,32 @@ export default async function handler(
             // THEN respond back to the user with answer precheckout query 
             // reference : https://core.telegram.org/bots/api#answerprecheckoutquery
             console.log("answerPreCheckout now ", pre_checkout_query.id);
-            await fetch(
-                `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        pre_checkout_query_id: pre_checkout_query.id,
-                        ok: "True",
-                        error_message: "something went wrong"
-                    }),
-                }
-            );
+
+            axios.post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`, {
+                pre_checkout_query_id: pre_checkout_query.id,
+                ok: true
+            }).then((resp) => {
+
+                console.log(resp.data.data)
+
+            }).catch((resp) => {
+                console.log({ error: true, resp })
+            });
+
+            // await fetch(
+            //     `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`,
+            //     {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //         body: JSON.stringify({
+            //             pre_checkout_query_id: pre_checkout_query.id,
+            //             ok: "True",
+            //             error_message: "something went wrong"
+            //         }),
+            //     }
+            // );
         }
 
         res.status(200).json({ status: "ok" });

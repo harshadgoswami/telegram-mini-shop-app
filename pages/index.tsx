@@ -6,6 +6,7 @@ import Card from "@/components/Card/Card";
 import Cart from "@/components/Cart/Cart";
 import axios from "axios";
 import { IFood, ICartItem } from "@/types/food.type";
+import { initInitData } from "@telegram-apps/sdk";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,20 @@ export default function Home() {
       setFoods(res.data.data);
     });
 
-    axios
-      .get(
-        `https://api.telegram.org/bot{process.env.NEXT_PUBLIC_BOT_TOKEN}/getMe`
-      )
-      .then((res) => {
-        alert(res.data);
-        setTelegramId(Number(res.data.result._id));
-      });
+    /**
+     * @telegram-apps/sdk
+     */
+    const initData = initInitData();
+    console.log({ initData });
+
+    // axios
+    //   .get(
+    //     `https://api.telegram.org/bot{process.env.NEXT_PUBLIC_BOT_TOKEN}/getMe`
+    //   )
+    //   .then((res) => {
+    //     alert(res.data);
+    //     setTelegramId(Number(res.data.result._id));
+    //   });
   }, [telegramId]);
 
   const onAdd = (food: IFood) => {

@@ -70,7 +70,7 @@ export default async function handler(
 
             // THEN respond back to the user with answer precheckout query 
             // reference : https://core.telegram.org/bots/api#answerprecheckoutquery
-            console.log("answerPreCheckout now ");
+            console.log("answerPreCheckout now ", pre_checkout_query.id);
             await fetch(
                 `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`,
                 {
@@ -81,6 +81,7 @@ export default async function handler(
                     body: JSON.stringify({
                         pre_checkout_query_id: pre_checkout_query.id,
                         ok: "True",
+                        error_message: "something went wrong"
                     }),
                 }
             );

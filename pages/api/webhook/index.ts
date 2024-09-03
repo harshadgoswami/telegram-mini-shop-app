@@ -2,6 +2,9 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 
+
+// implement this 
+// https://core.telegram.org/bots/payments-stars#implementing-payments
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -44,8 +47,7 @@ export default async function handler(
 
             // You can respond back to the user via the bot
 
-            await fetch(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`
-                ,
+            await fetch(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/sendMessage`,
                 {
                     method: "POST",
                     headers: {

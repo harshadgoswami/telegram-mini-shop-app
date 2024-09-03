@@ -6,11 +6,11 @@ export const sendInvoice = (chatId: string) => {
         title: "Pro Membership",
         description: "Get the Pro Membership to unlock all features.",
         payload: "pro_membership_payment",
-        provider_token: (process.env.NEXT_PUBLIC_PAYMENT_PROVIDER_TOKEN) as string, // Payment token from your provider
+        provider_token: "", //(process.env.NEXT_PUBLIC_PAYMENT_PROVIDER_TOKEN) as string, // Payment token from your provider
         //start_parameter: "get_access",
-        currency: "USD",
+        currency: "XTR", //"USD",
         prices: [
-            { label: "Pro Membership", amount: 500 }, // Amount in the smallest unit (cents)
+            { label: "Pro Membership", amount: 1 }, // Amount in the smallest unit (cents)
         ],
         //max_tip_amount: 1000, // Optional, allows users to tip (e.g., $10.00)
         //suggested_tip_amounts: [100, 200, 500], // Optional, suggested tip amounts

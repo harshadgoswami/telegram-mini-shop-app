@@ -69,8 +69,8 @@ export default function Home() {
   const onCheckout = () => {
     //do checkout here
     axios
-      .post(`/api/telegram/sendinvoice`, { telegramId: "954752754" })
-      .then((res) => {});
+      .post(`/api/telegram/sendinvoice`, { telegramId: "7130021259" })
+      .then((res) => {}); //954752754
   };
 
   return (

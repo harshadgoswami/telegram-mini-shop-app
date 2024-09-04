@@ -18,7 +18,11 @@ export async function sendToGoogleAnalytics4(
         events: [
             {
                 name: eventName,
-                params: params,
+                params: {
+                    ...params,
+                    debug_mode: true
+                },
+
             },
         ],
     };

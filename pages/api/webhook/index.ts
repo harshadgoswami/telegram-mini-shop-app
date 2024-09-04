@@ -19,8 +19,8 @@ export default async function handler(
     // calling google analytics 
     // Send deposit event to GA4
     await sendToGoogleAnalytics4(
-      'G-3MMLLMBW40', // Your GA4 Measurement ID
-      'YOUR_API_SECRET', // Your GA4 API Secret
+      process.env.NEXT_PUBLIC_ANALYTICS_CODE as string, // Your GA4 Measurement ID
+      process.env.ANALYTICS_API_SECRET as string, // Your GA4 API Secret
       'deposit', // Event name
       {
         value: 10,

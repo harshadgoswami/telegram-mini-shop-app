@@ -9,7 +9,7 @@ import Script from "next/script";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const GA_MEASUREMENT_ID = "G-3MMLLMBW40";
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_ANALYTICS_CODE;
   const router = useRouter();
 
   useEffect(() => {

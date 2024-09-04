@@ -28,6 +28,8 @@ export async function sendToGoogleAnalytics4(
             `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`,
             payload
         );
+
+        console.log({ url: `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`, payload });
         console.log('Event sent successfully:', response.status);
     } catch (error) {
         console.error('Failed to send event:', error);

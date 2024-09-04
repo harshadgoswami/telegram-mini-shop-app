@@ -6,7 +6,7 @@ import Card from "@/components/Card/Card";
 import Cart from "@/components/Cart/Cart";
 import axios from "axios";
 import { IFood, ICartItem } from "@/types/food.type";
-import { initInitData } from "@telegram-apps/sdk";
+//import { initInitData } from "@telegram-apps/sdk";
 
 const inter = Inter({ subsets: ["latin"] });
 

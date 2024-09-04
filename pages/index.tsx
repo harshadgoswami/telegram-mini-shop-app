@@ -26,8 +26,8 @@ export default function Home() {
     /**
      * @telegram-apps/sdk
      */
-    const initData = initInitData();
-    console.log({ initData });
+    //const initData = initInitData();
+    //console.log({ initData });
 
     // axios
     //   .get(

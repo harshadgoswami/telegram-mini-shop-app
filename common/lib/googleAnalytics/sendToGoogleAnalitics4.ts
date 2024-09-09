@@ -20,7 +20,7 @@ export async function sendToGoogleAnalytics4(
                 name: eventName,
                 params: {
                     ...params,
-                    debug_mode: true
+                    debug_mode: 1
                 },
 
             },

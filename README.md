@@ -29,7 +29,7 @@ NEXT_PUBLIC_PAYMENT_PROVIDER_TOKEN = PAYMENT_METHOD_TOKEN_PROVIDED_BY_TELEGRAM_A
 
 - You required Telegram account it is prerequisites.
 - Open BotFather: Search for "BotFather" in Telegram and start a chat with it.
-- Start a new bot: Send the command /newbot to BotFather.
+- Start a new bot: Send the command `/newbot` to BotFather.
 - Choose a name: BotFather will prompt you to choose a name for your bot. This will be the name that users will see when interacting with it.
 - Choose a username: You'll also need to choose a unique username for your bot. This will be used in the bot's URL (e.g., @my_bot).
 - Receive the API token: BotFather will send you an API token after you've chosen a name and username. Keep this token safe, as it's essential for accessing your bot's functionality.
@@ -44,7 +44,7 @@ NEXT_PUBLIC_PAYMENT_PROVIDER_TOKEN = PAYMENT_METHOD_TOKEN_PROVIDED_BY_TELEGRAM_A
 
 - [Reference](https://github.com/harshadgoswami/my-documentations/blob/master/telegram/how-to-setup-webhook.md)
 
-## Telegram Start payment integretion steps ?
+## Telegram Star payment integretion steps ?
 
 - [Reference](https://core.telegram.org/bots/payments-stars#implementing-payments)
-- [refer](https://github.com/harshadgoswami/telegram-mini-shop-app/blob/master/pages/api/webhook/index.ts) for how i implemented that steps.
+- [Refer](https://github.com/harshadgoswami/telegram-mini-shop-app/blob/master/pages/api/webhook/index.ts) for how i implemented that steps.

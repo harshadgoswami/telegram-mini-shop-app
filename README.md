@@ -23,6 +23,6 @@ bun dev
 
 ## How to edit Existing Bot Information
 
-- [Recording]("https://www.awesomescreenshot.com/video/31398955")
+- [Recording](https://www.awesomescreenshot.com/video/31398955)
 - in botfather enter command /mybot and that will guide you how you can edit bot informations from there
 - we can link stripe paymentgateway with telegram and after successful linking it provide the provider id that we need to use in createInvoice API.

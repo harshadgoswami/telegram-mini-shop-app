@@ -1,5 +1,3 @@
-
-import { sendToGoogleAnalytics4 } from "@/common/lib/googleAnalytics/sendToGoogleAnalitics4";
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 
@@ -14,22 +12,6 @@ export default async function handler(
     const { message, pre_checkout_query, successful_payment } = req.body;
 
     console.log(req.body);
-
-
-    // calling google analytics 
-    // Send deposit event to GA4
-    await sendToGoogleAnalytics4(
-      process.env.NEXT_PUBLIC_ANALYTICS_CODE as string, // Your GA4 Measurement ID
-      process.env.ANALYTICS_API_SECRET as string, // Your GA4 API Secret
-      'deposit', // Event name
-      {
-        value: 10,
-        currency: "USD",
-        transaction_id: "02D3xjsdf234",
-        from: "324sdfsdf",
-        to: "02D3xjsdf234"
-      }
-    );
 
     /**
      * {
@@ -139,27 +121,8 @@ provider_payment_charge_id: '7130021259_1'
 
       console.log({ status, data });
 
-      // await fetch(
-      //     `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_BOT_TOKEN}/answerPreCheckoutQuery`,
-      //     {
-      //         method: "POST",
-      //         headers: {
-      //             "Content-Type": "application/json",
-      //         },
-      //         body: JSON.stringify({
-      //             pre_checkout_query_id: pre_checkout_query.id,
-      //             ok: "True",
-      //             error_message: "something went wrong"
-      //         }),
-      //     }
-      // );
     }
 
-    if (true) {
-
-
-
-    }
 
     res.status(200).json({ status: "ok" });
   } else {
